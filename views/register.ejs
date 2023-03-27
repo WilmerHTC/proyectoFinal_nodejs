@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="author"
+      content="Mark Otto, Jacob Thornton, and Bootstrap contributors"
+    />
+    <meta name="generator" content="Hugo 0.88.1" />
+    <meta name="description" content="" />
+    <title>Login nodjs -jwt</title>
+    <!-- Bootstrap core CSS -->
+    <link href=" css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/signin.css" rel="stylesheet" />
+  </head>
+
+  <body class="container-register d-flex justify-content-center">
+    <div class=" bg-dark">
+      <main class="form-registro justify-content-center">
+        <!-- Formulario para la validacion de los datos... -->
+        <form action="/register" method="POST">
+          <h1 class="h3 mb-3 fw-normal">Bienvenido!</h1>
+          <div class="form-conten2">
+            <div class="form-floating me-2">
+              <input
+                type="text"
+                class="form-control"
+                id="nombre"
+                name="nombres"
+              />
+              <label for="nombre"> Nombre</label>
+            </div>
+            <div class="form-floating me-2">
+              <input
+                type="text"
+                class="form-control"
+                id="apellidos"
+                name="apellidos"
+              />
+              <label for="apellidos">Apellido</label>
+            </div>
+            <div class="form-floating">
+              <input
+                type="text"
+                class="form-control"
+                id="ident"
+                name="numeroIdentificacion"
+              />
+              <label for="ident">N° identidad</label>
+            </div>
+
+            <div class="form-floating">
+              <input
+                type="text"
+                class="form-control"
+                id="telef"
+                name="telefono"
+              />
+              <label for="ident">N° telefono</label>
+            </div>
+          </div>
+          <div class="form-conten2 mt-2">
+            <div class="form-floating me-2">
+              <input
+                type="text"
+                class="form-control"
+                id="ficha"
+                name="numeroFicha"
+              />
+              <label for="ficha">ficha programa</label>
+            </div>
+
+            <div class="form-floating me-2">
+              <input
+                type="email"
+                class="form-control"
+                id="email"
+                name="correo"
+                placeholder="name@example.com"
+              />
+              <label for="email">Email </label>
+            </div>
+
+            <div class="form-floating">
+              <input
+                type="password"
+                class="form-control"
+                id="passw"
+                name="password"
+                placeholder="Contraseña"
+              />
+              <label for="passw">Password</label>
+            </div>
+          </div>
+          <div class="color-tex">
+            <div class="checkbox mb-3">
+              <!-- <label>
+                <input type="checkbox" value="remember-me" /> Guardar contraseña
+              </label> -->
+            </div>
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a
+                  class="nav-link page-scroll text-muted color-tex"
+                  href="login.html"
+                  >iniciar sesion</a
+                >
+              </li>
+            </ul>
+          </div>
+          <a href="/" type="button" class="btn btn-secondary">Cancelar</a>
+          <button class="btn btn-primary w-48 btn-solid-lg" type="submit">
+            Registrarse
+          </button>
+          <p class="mt-5 mb-3 text-muted">&copy;2020</p>
+        </form>
+      </main>
+    </div>
+    <script src="js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

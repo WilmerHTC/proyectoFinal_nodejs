@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta
+      name="author"
+      content="Mark Otto, Jacob Thornton, and Bootstrap contributors"
+    />
+    <meta name="generator" content="Hugo 0.88.1" />
+    <title>Login Cultupaz</title>
+
+    <link
+      rel="shortcut icon"
+      href="img/Logo-CultuPAz.png"
+      type="image/x-icon"
+    />
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="signin.css" rel="stylesheet" />
+
+    <style>
+      .contenedor {
+        background: url(img/psico.jpg) no-repeat;
+        background-size: cover;
+        justify-content: start;
+        color: white;
+      }
+      #contenedor_form {
+        width: 70%;
+        height: 90%;
+      }
+
+      #centrador {
+        position: relative;
+        width: 20vh;
+      }
+    </style>
+  </head>
+
+  <body class="container-login contenedor">
+    <div class="fondo">
+      <div class="justify-content-center vh-100">
+        <div class="container d-flex justify-content-center">
+          <form
+            id="contenedor_form"
+            action="/login"
+            method="POST"
+            class="container p-2 mb-2 border border-dark my-5 bg-secondary bg-opacity-50 p-5 rounded text-dark mh-100"
+            style="width: 25rem; height: 37rem"
+          >
+            <div class="d-flex justify-content-center align-content-center">
+              <img
+                src="img/Logo-CultuPAz.png"
+                class="d-flex text-white bi-brightness-alt-low"
+                alt="login-icon"
+                style="height: 5rem"
+              />
+            </div>
+            <!-- <h4 class="text-center fw-bold fs-6" style="color: #00324d">
+              CultuPaz
+            </h4> -->
+            <div class="text-center fw-bold fs-3" style="color: #00324d">
+              Inicia sesión
+            </div>
+            <div class="input-group mt-4 mb-4">
+              <div class="input-group-text" style="background-color: #00324d">
+                <img
+                  src="icons/username-icon.svg"
+                  class="icon-remove icon-white"
+                  alt="username-icon"
+                  height="12rem"
+                />
+              </div>
+              <input
+                type="email"
+                class="form-control bg-white"
+                id="user"
+                name="correo"
+                placeholder="Correo electrónico"
+              />
+            </div>
+
+            <div class="input-group mt-1">
+              <div class="input-group-text" style="background-color: #00324d">
+                <img
+                  src="icons/password-icon.svg"
+                  alt="password-icon"
+                  height="12rem"
+                />
+              </div>
+              <input
+                type="password"
+                class="form-control bg-light"
+                id="pass"
+                name="password"
+                placeholder="Contraseña"
+              />
+            </div>
+            <button
+              class="btn btn text-white w-100 mt-4 fw-semibold shadow-sm justify-content-center"
+              type="submit"
+              style="background-color: #00324d"
+            >
+              Iniciar sesión
+            </button>
+
+            <p class="text-center mt-2">
+              <a
+                href="../formularioRegistro-main/index.html"
+                class="text-decoration-none fw-semibold mt-2 mb-2 text-center"
+                style="color: white"
+                data-bs-togle="modal"
+                data-bs-target="#exampleModal"
+              >
+                ¿Olvidaste tu contraseña?</a
+              >
+            </p>
+
+            <div class="d-flex  justify-content-center text-white">
+              <div>¿No tienes una cuenta?</div>
+              <a
+                href="/register"
+                class="text-decoration-none fw-semibold"
+                style="color: white"
+                data-bs-togle="modal"
+                data-bs-target="#exampleModal"
+              >
+                Registrate</a
+              >
+            </div>
+            <p class=" text-white text-center" style="height: 0.0rem"><h6 class="text-center text-white">_____________________Ó______________________</h6></p>
+
+            <div
+              class="btn d-flex gap-2 justify-content-center border mt-2 shadow-sm"
+            >
+              <img
+                src="icons/google-icon.svg"
+                alt="google-icon"
+                style="height: 1.8rem"
+              />
+
+              <a
+                href="https://accounts.google.com/v3/signin/identifier?dsh=S50424583%3A1667659400465066&continue=https%3A%2F%2Fmail.google.com%2Fmail%2F&flowEntry=AddSession&flowName=GlifWebSignIn&service=mail"
+                target="_blanck"
+              >
+                <button class="btn text-white"><strong>Continua con google</strong></button>
+              </a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/bootstrap.min.js"></script>
+    <!-- Validación para las alertas con EJS... -->
+  </body>
+</html>
