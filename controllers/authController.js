@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken');
-const bcryptjs = require('bcryptjs');
+const bcrypt = require('bcryptjs');
 const conexion = require('../database/db.js');
 const { promisify } = require('util');
 
@@ -14,19 +14,18 @@ exports.register = async (req, res) => {
         const correo = req.body.correo
         const password = req.body.password
         // Ecncriptar contraseña..
-        // let passHash = await bcryptjs.hash(password, 8);
+        let passHash = await bcrypt.hash(password, 8);
         const numeroFicha = req.body.numeroFicha
-        // console.log(passHash);
+        console.log(passHash);
 
-        // console.log(req.body);
         // LLAMO A MI CONEXION CON BASE DE DATOS...
-        conexion.query('INSERT INTO aprendiz SET ?', { nombres: nombres, apellidos: apellidos, numeroIdentificacion: numeroIdentificacion, telefono: telefono, correo: correo, password: password, numeroFicha: numeroFicha }, (error, results) => {
+        conexion.query('INSERT INTO aprendiz SET ?', { nombres: nombres, apellidos: apellidos, numeroIdentificacion: numeroIdentificacion, telefono: telefono, correo: correo, password: passHash, numeroFicha: numeroFicha }, (error, results) => {
             // SI HAY UN ERROR AL REGIsTRAR DATOS ME MUESTRA EL ERROR
             if (error) { console.log(error) }
             // SI NO HAY ERRORES ME REDIRIGE A LA PAGINA DE LOGIN...
-            res.redirect('/')
+            res.redirect('/login')
+            console.log('Sis e insertan datos')
         });
-        // console.log(req.body);
     } catch (error) {
         console.log(error);
     }
@@ -37,55 +36,27 @@ exports.login = async (req, res) => {
     try {
         const correo = req.body.correo
         const password = req.body.password
+        let passHash = await bcrypt.hash(password, 8);
 
 
-        if ( !correo || password.length == 0 && !password) {
+        if (!correo || passHash.length == 0 && !passHash) {
+            res.render('login')
             console.log('Error: Digite su correo y contraseña')
  
-        }
-
-        conexion.query('SELECT * aprendiz WHERE  correo = ?', [correo], async (error, results) => {  
-            
-            if (password.length == 0 && !password) {
+        } else {
+            conexion.query('SELECT * aprendiz WHERE correo = ?', [correo], async (req, results) => {
+                if (!passHash) {
                 console.log('Error en contraseña')
             } else {
-                res.render('index')
+                res.redirect('/');
                 console.log('Se ha iniciado la sesion');
             }
-        })
 
-
-        // conexion.query('SELECT * aprendiz WHERE password = ?', [password], async (req, res) => {
-        // });
-        
-        console.log(correo + "," + password)
+            });
+        } 
+        console.log(correo + "," + passHash)
     } catch (error) {
         console.log(error);
     }
 
 };
-
-// Controlador para verificar si esta autenticado...
-// exports.isAuthenticated = async (req, res, next) => {
-//     if (req.cookies.jwt) {
-//         try {
-//             const decodificada = await promisify(jwt.verify)(req.cookies.jwt, process.env.JWT_SECRETO)
-//             conexion.query('SELECT * FROM aprendiz WHERE id ?', [decodificada.id], (error, results) => {
-//                 if (!results) { return next() }
-//                 req.aprendiz = results
-//                 return next();
-//             });
-
-//         } catch (error) {
-//             console.log(error)
-//         }
-//     } else {
-//         res.redirect('/login')
-//     }
-// }
-
-// // Controlador para cerrar las sesiones de usuario
-// exports.logout = async (req, res) => {
-//     res.clearCookie('jwt')
-//     return res.redirect('/')
-// }

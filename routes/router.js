@@ -19,14 +19,17 @@ router.get('/register2', (req, res) => {
     res.render('register2');
 });
 
+
+
 // RUTAS PARA LOS METODOS DEL CONTROLADOR
-router.post('/register', authController.register);
+router.post('/register2', authController.register);
 
 // Ruta para el controlador de sesiones
 router.post('/login', authController.login)
 
 // Ruta para cerrar mi sesion...
-// router.get('/logout', authController.logout)
+// router.get('/logout', .logout)
+// router.get('/logout', authController.logout);
 
 
 // Exporto Mis metoso que utiliza la constante ***router__...

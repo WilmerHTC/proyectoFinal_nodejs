@@ -1,6 +1,8 @@
 const express = require('express');
 const dotenv = require('dotenv');
 const cookieParser = require('cookie-parser');
+const session = require('express-session')
+const bodyParser = require('body-parser');
 
 const app = express();
 
@@ -13,6 +15,13 @@ app.use(express.static('public'));
 // Configurar node procesar datos registro de datos y login enviados dese un form.
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
+// Codigo para guardar las sesiones
+// app.use(session({
+//     secret: 'secret',
+//     resave: 'true',
+//     saveUninitialized: true
+// }));
 
 // SETEAMOS LAS VARIABLES DE ENTORNO.
 dotenv.config({ path: './env/.env' });
